@@ -12,26 +12,22 @@ constructor() {
         pluralNoun: ''
     }
     this.handleInputChange = this.handleInputChange.bind(this);
+
+    (event) => {console.log}
 }
 
-handleInputChange () {
-    console.log('This is the value');
-    this.setState ({color: 'red' })
+handleInputChange (event) {
+    
+    this.setState ({color: 'event.target.value' })
 }
 
     render(){
 
         return(
-            <div className="card">
-            <h1>{this.state.color}</h1>
-            <input onChange={this.handleInputChange}/>
-            </div>
-        )
-        return(
         <div className= "card">
             <h1>{this.state.color}</h1>
-        { Input('Color') }
-        { Input('Plural Noun') }
+        { Input('Color',this.state.color, this.handleInputChange, 'color') }
+        { Input('Plural Noun',this.state.pluralNoun,this.handleInputChange, 'pluralNoun')}
 
         </div>
     )
