@@ -11,9 +11,11 @@ constructor() {
         color: '',
         pluralNoun: ''
     }
+    this.handleInputChange = this.handleInputChange.bind(this);
 }
 
 handleInputChange () {
+    console.log('This is the value');
     this.setState ({color: 'red' })
 }
 
@@ -22,7 +24,7 @@ handleInputChange () {
         return(
             <div className="card">
             <h1>{this.state.color}</h1>
-            <input/>
+            <input onChange={this.handleInputChange}/>
             </div>
         )
         return(
