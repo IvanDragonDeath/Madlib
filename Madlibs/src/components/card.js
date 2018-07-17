@@ -36,6 +36,9 @@ handleInputChange (event) {
     this.setState ({[event.target.name]: 'event.target.value' })
    
 }
+handleFormSubmit() {
+    
+}
 
     render(){
 
@@ -59,12 +62,15 @@ handleInputChange (event) {
         ]
 
         return(
-        <div className= "card">
+        <form onSubmit={this.handleFormSubmit} className= "card">
+        <div className= "card_inputs">
         {
             inputData.map (data => Input( (data), this.handleInputChange ))
         }
-         <Content data={this.state}/>
         </div>
+        <button>Generate MadLib</button>
+         <Content data={this.state}/>
+        </form>
         )
     }
 }
