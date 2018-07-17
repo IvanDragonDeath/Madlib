@@ -2,9 +2,10 @@ import React from 'react';
 
 const Input = ({title,state,name}, onChange) => {
     return (
-        <div key={state}className="input">
+        <div key={index}className="input">
+        <label className= "input__number">{index + 1}</label>
         <input name={name}value={state} onChange={onChange}/>
-        <label>{title}</label>        
+        <label className="input__title">{title}</label>        
        </div>
 
     )

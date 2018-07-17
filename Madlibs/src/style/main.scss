@@ -1,9 +1,90 @@
 .home{
-    background-color: #cfcfcf1c
+    position: relative;
+    background-color: #cfcfcf1c;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: [header-s]218px[header-e] [card-s]minmax(736px,934px)[card-e];
 }
+.header{
+    color: white;
+    font-family: 'Montserrat';
+    text-align: center;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 25%, 0 50%);
+    clip-path: polygon (0 49%, 100% 24%, 100% 25%, 0 50%);
+    align-self: center;
+    &__border {
+        
+        z-index: -10;
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 110vh;
+        width: 100vw;
+        background-color: #444444;
+        border-bottom: 10px solid #00cb79
+    }
+    &__skew {
+        
+        z-index: -10;
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 110vh;
+        width: 100vw;
+        background-color: #444444;
+        border-bottom: 10px solid #00cb79
+    }
+    
+    h1 {
+        
+        
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 44px;
+        text-align: center;
+    }
+    p {
+        color: rgba(255,255,255,0.75);
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 19px;
+    }
+}
+
+
+
+
 .card {
     height: 736px;
     width: 1240px;
     box-shadow: 0 4px 30px 0 rgba ( 0, 0, 0, 0.06);
     border-radius: 7px;
+
+    display: grid;
+    grid-template-rows: 1fr 50px;
+
+&__inputs {
+    
+    display: grid;
+    background-color: skyblue;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+    
+}
+.input {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: [number-s] 26px [number-e]  [input-s]1fr [input-e];
+    &__title{
+        grid-column: input-s/input-e;
+    }
+    input {
+        grid-column: input-s/input-e;
+    }
+    &__number {
+        grid-column: number-s/number-e;
+    }
 }
