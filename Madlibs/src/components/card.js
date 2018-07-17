@@ -2,6 +2,25 @@ import React, { Component } from 'react';
 
 import Input from './input';
 import Content from './content';
+const INITIAL_STATE = {
+    color: '',
+    pluralNoun: '',
+    adjectiveOne:'',
+    celebOne:'',
+    adjectiveTwo:'',
+    nounOne:'',
+    numberOne:'',
+    numberTwo:'',
+    nounTwo:'',
+    adjectiveThree:'',
+    celebTwo:'',
+    celebThree:'',
+    adjectiveFour:'',
+    nounThree:'',
+    celebFour:'',
+    adjectiveFive:'',
+    contentVisible: false
+}
 
 class Card extends Component {
 
@@ -25,8 +44,11 @@ constructor() {
         nounThree:'',
         celebFour:'',
         adjectiveFive:'',
+        contentVisible: false
     }
+    this.state = INITIAL_STATE;
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
 
     (event) => {console.log}
 }
@@ -36,8 +58,15 @@ handleInputChange (event) {
     this.setState ({[event.target.name]: 'event.target.value' })
    
 }
-handleFormSubmit() {
+handleFormSubmit(event) {
+    event.preventDefault()
+    if(this.state.contentVisible){
+        this.setState (INITIAL_STATE)
+    } else {
+        thist.setState({ contentVisible: true})
+    }
     
+
 }
 
     render(){
@@ -59,6 +88,7 @@ handleFormSubmit() {
             {title: 'Noun', state: this.state.nounThree, name: 'nounThree'},
             {title: 'Celebrity', state: this.state.celebFour, name: 'celebFour'},
             {title: 'Adjective', state: this.state.adjectiveFive, name: 'adjectiveFive'},
+            
         ]
 
         return(
@@ -68,8 +98,10 @@ handleFormSubmit() {
             inputData.map (data => Input( (data), this.handleInputChange ))
         }
         </div>
-        <button>Generate MadLib</button>
-         <Content data={this.state}/>
+        <button type="submit">{this.state.contentVisible ? 'Generate Mad Lib' : 'clear Form' }</button>
+         {
+         this.state.contentVisible ? <Content data= {this.state}/> : <div>Hello</div>
+         }<Content data={this.state}/>
         </form>
         )
     }
