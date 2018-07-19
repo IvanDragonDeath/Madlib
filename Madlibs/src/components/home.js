@@ -13,5 +13,10 @@ import card from './card';
     );
   }
 }
+// things to fix
+//placeholder
+//gray and green labels
+//generate btn space
+//content labels
 
 export default home;
