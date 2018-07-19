@@ -1,3 +1,15 @@
+@mixin button {
+    height: 50px;
+    width: 300px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(145, 95, 95, 0.1);
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 22px;
+    text-align: center;
+}
+
+
 .home{
     position: relative;
     background-color: #cfcfcf1c;
@@ -70,10 +82,33 @@
     font-family: 'Montserrat';
     display: grid;
    
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 27px);
+    grid-template-columns: repeat(4, 27px);
+
+    grid-row-gap:120px;
+    margin-top: 66px;
+    margin-left: 83px;
+    margin-right: 83px;
+
     justify-items: center;
     align-items: center;
+}
+button:focus {
+    outline: none;
+}
+button {
+justify-self: center;
+}
+&__generate {
+    background-color: #00cb79;
+    @include button;
+
+}
+&__clear {
+background-color: #00cb79;
+@include button;
+
+
 }
     
 }
